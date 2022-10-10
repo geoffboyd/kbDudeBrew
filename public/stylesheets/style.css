@@ -1,0 +1,158 @@
+
+body {
+  padding: 50px;
+  font: 14px "Montserrat", Helvetica, Arial, sans-serif;
+  color: #ddd;
+  text-align: center;
+  background-color: black;
+  background-image: url('../images/dnd-background.png');
+  background-size: cover;
+  background-position: absolute;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+a {
+  color: #00B7FF;
+}
+
+div.search {
+  width: 100%;
+  text-align: center;
+}
+
+.search {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  background-color: white;
+  background-image: url('../images/searchicon.png');
+  background-size: 25px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  border-radius: 20px;
+  opacity: .90;
+}
+
+table tr th {
+  padding: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #1a0000;
+  border-collapse: separate;
+}
+
+table th, table td {
+  padding: 12px 15px;
+}
+
+table th {
+  background-color: #1a0000;
+}
+
+table tr {
+  border-bottom: 1px solid #666;
+}
+
+table tr:nth-child(even){background-color: #353535;}
+
+table tr:nth-child(odd){background-color: #222;}
+
+table tr:nth-child(even):hover {background-color: #322;}
+
+table tr:nth-child(odd):hover {background-color: #322;}
+
+table tr:last-of-type {
+    border-bottom: 2px solid #1a0000;
+}
+
+.searchButtons {
+  text-align: left;
+  font-size: 2vw;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+i {
+  padding-right: 5px;
+}
+
+h1 {
+  font-size: 4vw;
+  color: #f80031;
+  text-shadow: 2px 2px #000;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 3vw;
+}
+
+input.homebrewDetails, select.homebrewDetails {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 12px 20px;
+  margin: 8px 8px;
+  color: black;
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  overflow: hidden;
+  resize: vertical;
+  height: auto;
+}
+
+.btn {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+input#searchButton {
+  height: 40px;
+  width: 40px;
+  font-size: 32px;
+  float: right;
+  position: absolute;
+  margin-left: -45px;
+  margin-top: 8px;
+  padding: 0;
+  border-style: none;
+  background-color: transparent;
+}
+
+br#child_of_br {
+  display: none;
+}
+
+br#child_of_br.active {
+  display: flex;
+}
+
+.errorField {
+  background-color: rgb(255, 125, 125);
+}

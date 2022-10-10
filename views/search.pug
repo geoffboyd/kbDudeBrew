@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h2 Search results
+  table
+    tr.tableHeaders
+      for column in tableHeaders
+        th= column
+      th= 'View'
+      th= 'Edit'
+      th= 'Delete'
+    for homebrew in homebrewList
+        tr.homebrewRows
+          for column in homebrew
+            - let columnIsArray = Array.isArray(column)
+            if columnIsArray
+              td
+                a(href=column[0])
+                  i.fa-solid(class=column[1])
+            else
+              td= column
+
+  a.homeButton(href='/')
+    button.btn.btn-primary(type='button')
+      i.fa-solid.fa-house
+      .
+        Home

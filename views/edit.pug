@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h2 Make changes to your Homebrew
+  div.addRecipe
+    form.homebrewForm(action=`/update?row=${rowNumber}`, method='POST')
+      input.homebrewDetails(type='text', name='title', value=`${title}`, required)
+      input.homebrewDetails(type='text', name='author', value=`${author}`)
+      select.homebrewDetails(name='category')
+        option(value='Choose Category', selected, disabled) Choose Category
+        option(value='---------------', disabled) ---------------
+        option(value='NPC' id='NPC') NPC
+        option(value='Monster' id='Monster') Monster
+        option(value='Race' id='Race') Race
+        option(value='Class' id='Class') Class
+        option(value='Spell' id='Spell') Spell
+        option(value='Adventure' id='Adventure') Adventure
+      - let date = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' })
+      input.homebrewDetails(type='hidden', name='modified', value=`${date}`)
+      input.homebrewDetails(type="checkbox", id="childHomebrew", name="childFlag")
+      label.homebrewDetails(for="childHomebrew") Child homebrew
+      br(id='child_of_br')    
+      input.homebrewDetails(type='hidden', name='child_of', list='hbTitleList', id='child_of', placeholder='Child of...', value=`${childOf}`)
+      datalist(id='hbTitleList')
+        each hbTitle in hbTitles
+          option(value= hbTitle)
+      br
+      textarea(name='markdown', id='markdown', rows='15', cols='100') #{markdown}
+      br
+      input.btn.btn-success(type='submit' formaction=`/update?row=${rowNumber}` value='💾Save changes')
+      a(href='/manage')
+        input.btn.btn-danger(type='button' value='🗙Cancel')
+      input.btn.btn-primary(type='submit' formaction='/preview' value='🔍Preview' target='_blank')
+  script(src="/javascripts/editor.js")

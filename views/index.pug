@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 KB's Awesome D&D DudeBrew Engine
+  h2 search for a nightmare, or design one anew
+  div
+    form(action='/search', method='GET')
+        input.search(type='text', name='Homebrew Name', placeholder='Search for a homebrew...')
+        input(type='submit' id='searchButton' value='➡️') 
+    div.btn-group
+      a(href='/add')
+        button.btn.btn-success(type='button')
+          i.fa-solid.fa-pen-to-square
+          .
+            Add a new homebrew
+      a(href='/manage')
+        button.btn.btn-dark(type='button')
+          i.fa-solid.fa-folder-open
+          .
+            Manage your homebrews

@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h2 Add a fresh homebrew to your catalog
+  div.addHomebrew
+    form.homebrewForm(action='/new', method='POST')
+      input.homebrewDetails(type='text', name='title', placeholder='Title', required)
+      input.homebrewDetails(type='text', name='author', placeholder='JDK')
+      select.homebrewDetails(name='category')
+        option(value='Choose Category', selected, disabled) Choose Category
+        option(value='---------------', disabled) ---------------
+        option(value='NPC') NPC
+        option(value='Monster') Monster
+        option(value='Race') Race
+        option(value='Class') Class
+        option(value='Spell') Spell
+        option(value='Adventure') Adventure
+      - let date = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' })
+      input.homebrewDetails(type='hidden', name='created', value=`${date}`)
+      input.homebrewDetails(type="checkbox", id="childHomebrew", name="childFlag")
+      label.homebrewDetails(for="childHomebrew") Child homebrew
+      br(id='child_of_br')    
+      input.homebrewDetails(type='hidden', name='child_of', list='hbTitleList' id='child_of', placeholder='Child of...')
+      datalist(id='hbTitleList')
+        each hbTitle in hbTitles
+          option(value= hbTitle)
+      textarea(name='markdown', id='markdown', placeholder='# Markdown starts here!' rows='15' cols='100', required)
+      br
+      input.btn.btn-success(type='submit' formaction='/new' value='➕Click to add!')
+      a(href='/')
+        input.btn.btn-danger(type='button' value='🗙Cancel')
+      input.btn.btn-primary(type='submit' formaction='/preview' value='🔍Preview' target='_blank')
+  script(src="/javascripts/editor.js")

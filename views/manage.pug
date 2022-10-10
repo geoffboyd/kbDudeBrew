@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h2 Peruse your homebrew catalog
+  table
+    tr.tableHeaders
+      for column in tableHeaders
+        th= column
+      th= 'View'
+      th= 'Edit'
+      th= 'Delete'
+    for mdsave in mdsaveList
+        tr.homebrewRows
+          for column in mdsave
+            - let columnIsArray = Array.isArray(column)
+            if columnIsArray
+              td
+                a(href=column[0])
+                  i.fa-solid(class=column[1])
+            else
+              td= column
+  div.btn-group
+    a.homeButton(href='/')
+      button.btn.btn-primary(type='button')
+        i.fa-solid.fa-house
+        .
+          Home
+    a(href='/add')
+      button.btn.btn-success(type='button')
+        i.fa-solid.fa-pen-to-square
+        .
+          Add a new homebrew
