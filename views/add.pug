@@ -24,6 +24,7 @@ block content
       datalist(id='hbTitleList')
         each hbTitle in hbTitles
           option(value= hbTitle)
+      br
       textarea(name='markdown', id='markdown', placeholder='# Markdown starts here!' rows='15' cols='100', required)
       br
       input.btn.btn-success(type='submit' formaction='/new' value='➕Click to add!')
