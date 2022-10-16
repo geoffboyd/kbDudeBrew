@@ -18,7 +18,7 @@ if (!markdownSheets['count(*)']) {
 router.get('/', function(req, res, next) {
   let mdsaves = db.prepare(`SELECT * FROM mdsaves`).all();
   let mdsaveList = [];
-  let tableHeaders = ['Homebrew Title', 'Category', 'Parent Category', 'Author', 'Created', 'Modified'];
+  let tableHeaders = ['Homebrew Title', 'Category', 'Parent Homebrew', 'Author', 'Created', 'Modified'];
   for (let mdsave of mdsaves) {
     // make a new table row in the body for each recipe
     mdsaveList.push([mdsave.title, mdsave.category, mdsave.child_of, mdsave.author, mdsave.created, mdsave.modified, [`/view?row=${mdsave.row}`, 'fa-book-open-reader'], [`/edit?row=${mdsave.row}`, 'fa-pen-to-square'], [`/delete?row=${mdsave.row}`, 'fa-trash-can']])

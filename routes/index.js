@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'JDK Cave of Horrors' });
+  res.render('index', { title: 'KB DudeBrew' });
 });
 
 router.post('/'), function(req, res, next) {

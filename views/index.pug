@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1 KB's Awesome D&D DudeBrew Engine
-  h2 search for a nightmare, or design one anew
+  h2 The portal where your brews become reality
   div
     form(action='/search', method='GET')
-        input.search(type='text', name='Homebrew Name', placeholder='Search for a homebrew...')
+        input.search(type='text', name='Homebrew Name', placeholder='Search for a homebrew, or hit enter to see all...')
         input(type='submit' id='searchButton' value='➡️') 
     div.btn-group
       a(href='/add')

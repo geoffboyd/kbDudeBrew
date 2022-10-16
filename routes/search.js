@@ -21,10 +21,10 @@ router.get('/', function(req, res, next) {
   let search = url[1];
   let mdsheets = db.prepare(`SELECT * FROM mdsaves WHERE title LIKE '%${search}%'`).all();
   let homebrewList = [];
-  let tableHeaders = ['Homebrew Title', 'Created', 'Category', 'Author'];
+  let tableHeaders = ['Homebrew Title', 'Category', 'Parent Homebrew', 'Author', 'Created', 'Modified'];
   for (let mdsheet of mdsheets) {
     // make a new table row in the body for each recipe
-    homebrewList.push([mdsheet.title, mdsheet.created, mdsheet.category, mdsheet.author, [`/view?row=${mdsheet.row}`, 'fa-solid fa-book-open-reader'], [`/edit?row=${mdsheet.row}`, 'fa-pen-to-square'], [`/delete?row=${mdsheet.row}`, 'fa-trash-can']])
+    homebrewList.push([mdsheet.title, mdsheet.category, mdsheet.child_of, mdsheet.author, mdsheet.created, mdsheet.modified, [`/view?row=${mdsheet.row}`, 'fa-solid fa-book-open-reader'], [`/edit?row=${mdsheet.row}`, 'fa-pen-to-square'], [`/delete?row=${mdsheet.row}`, 'fa-trash-can']])
   }
   res.render('search', {
     title: 'Search Results',

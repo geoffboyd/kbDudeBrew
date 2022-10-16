@@ -22,23 +22,13 @@ router.get('/', function(req, res, next) {
   url = url.split('=');
   let rowNumber = url[1];
   let mdsave = db.prepare(`SELECT * FROM mdsaves WHERE row=${rowNumber}`).get();
-  let row = mdsave.row;
   let title = mdsave.title;
-  let author = mdsave.author;
-  let category = mdsave.category;
   let markdown = mdsave.md;
-  let childBool = mdsave.child;
-  let childOf = mdsave.child_of;
   markdown = markdown.replaceAll('\'\'', '\'');
   res.render('edit', {
     title,
     hbTitles,
-    row,
-    author,
-    category,
     markdown,
-    childBool,
-    childOf,
     rowNumber,
    });
 });

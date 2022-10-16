@@ -24,9 +24,7 @@ router.post('/', function(req, res, next) {
   let markdown = req.body.markdown;
   markdown = markdown.replaceAll('\'', '\'\'');
   let modified = req.body.modified;
-  let childBool = req.body.childFlag;
-  let childOf = req.body.child_of;
-  let updateMd = db.prepare(`UPDATE mdsaves SET title='${title}', category='${category}', md='${markdown}', modified='${modified}', child='${childBool}', child_of='${childOf}' WHERE row=${row};`);
+  let updateMd = db.prepare(`UPDATE mdsaves SET title='${title}', md='${markdown}', modified='${modified}' WHERE row=${row};`);
   updateMd.run();
   res.redirect('/success');
 });
