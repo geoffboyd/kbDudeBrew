@@ -1,6 +1,5 @@
 
 body {
-  padding: 50px;
   font: 14px "Montserrat", Helvetica, Arial, sans-serif;
   color: #ddd;
   text-align: center;
@@ -122,7 +121,7 @@ textarea {
   border-radius: 5px;
   padding: 12px 20px;
   margin: 8px 0;
-  overflow: hidden;
+/*  overflow: hidden; */
   resize: vertical;
   height: auto;
   width: 90vw;
@@ -158,4 +157,21 @@ br#child_of_br.active {
 
 .errorField {
   background-color: rgb(255, 125, 125);
+}
+
+div#checkBoxDiv {
+  display: inline-flex;
+}
+
+div#checkBoxDiv label {
+  padding-top: 1.2vh;
+}
+
+.page {
+  background-image: url('../images/assets/parchmentBackground.jpg') !important;
+}
+
+.navbar {
+  margin-bottom: 10vh;
+  padding-left: 2vw;
 }
