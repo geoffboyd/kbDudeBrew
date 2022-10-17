@@ -8,7 +8,7 @@
 - `cd kbBrewDude`
 - `npm install`
 - `npm start`
-- From the same PC, open your browser and navigate to http://localhost:3001
+- From the same PC, open your browser and navigate to http://localhost:3000
 
 #### To-do
 Lots. This isn't in a release state yet.
